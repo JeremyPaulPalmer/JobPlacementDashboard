@@ -11,7 +11,7 @@ The Python Live Project involved creating a web-based app from scratch using PyC
 <br>
 <br>
 
-## C Sharp Live Project
+## <a id="c_sharp_live_project">C Sharp Live Project</a>
 ### Parsing Awards Table
 Out of all the User Stories, this one was by far the most challenging and most rewarding. This was a prime example of both a Front End and a Back End User Story.The original block of code simply contained the Awards data hardcoded which meant that any and every change needed to be performed manually. A previous User Story had been completed which seeded the Awards Table in the database. My task was to write the logic needed to display this information dynamically. As you can see below, I utilized a foreach loop with multiple nested if and else statements to achieve my goal of parsing the existing Awards information. The use of C#, html, CSS, and Bootstrap completed the Front End portion.
 ```
