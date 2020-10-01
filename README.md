@@ -1,7 +1,7 @@
 # Prosper IT Consulting Internship
 
-* #### [C# Internship](#python-project)
-* #### [Python Internship](#template-inheritance)
+* #### [C# Internship](#c-sharp-project)
+* #### [Python Internship](#python-project)
 
 ### Introduction
 As a part of the Software Developer Boot Camp at [The Tech Academy](http://learncodinganywhere.com), I was fortunate enough to work as an intern on two separate projects for Prosper IT Consulting. The C# project consisted of a 2-week Sprint which utilized Scrum/Agile methodologies and Azure DevOps for project management. The project consisted of developing a website for a Theater Production Company in Portland, Oregon using Visual Studio 2019, MVC, and EF Frameworking. I contributed to the front and back end devolopment. Examples and code snippets can be seen [below](#parsing-awards-table).
@@ -10,7 +10,7 @@ The Python project involved creating a web-based app from scratch using PyCharm,
 <br>
 <br>
 
-## C Sharp Project
+## <a id="c_sharp_project>C Sharp Project</a>
 ### <a id="parsing_awards_table">Parsing Awards Table</a>
 Out of all the User Stories, this one was by far the most challenging and most rewarding. This was a prime example of both a Front End and a Back End User Story.The original block of code simply contained the Awards data hardcoded which meant that any and every change needed to be performed manually. A previous User Story had been completed which seeded the Awards Table in the database. My task was to write the logic needed to display this information dynamically. As you can see below, I utilized a foreach loop with multiple nested if and else statements to achieve my goal of parsing the existing Awards information. The use of C#, html, CSS, and Bootstrap completed the Front End portion.
 ```
