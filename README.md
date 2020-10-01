@@ -1,6 +1,6 @@
 # Prosper IT Consulting Internship
 
-* #### [C# Internship](#parsing-awards-table)
+* #### [C# Internship](#python-project)
 * #### [Python Internship](#template-inheritance)
 
 ### Introduction
@@ -160,7 +160,7 @@ In this case, not do anything. This was actually my first User Story and to be q
 </p>
 ```
 
-## Python Project
+## <a id="python_project">Python Project</a>
 ### <a id="template_inheritance">Template Inheritance</a>
 Once you grasp and understand template inheritance, it is like manna from heaven. As part of a larger project with many other developers working on their respective apps, my Nintendo Switch App is part of another app that essentially displays my app and other apps. Extending from the base of the main app allowed me to change some content while leaving the rest as "default" from the base. This allowed me to keep the overall feel of the main app while still being able to customize my app.
 
