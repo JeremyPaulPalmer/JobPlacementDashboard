@@ -1,12 +1,12 @@
 # Prosper IT Consulting Internship
 
 * #### [C# Internship](#parsing-awards-table)
-* #### [Python Internship](#model)
+* #### [Python Internship](#template-inheritance)
 
 ### Introduction
-As a part of the Software Developer Boot Camp at [The Tech Academy](http://learncodinganywhere.com), I was fortunate enough to work as an intern on two separate projects for Prosper IT Consulting. The C# project consisted of a 2-week Sprint which utilized Scrum/Agile methodologies and Azure DevOps for project management. The project consisted of developing a website for a Theater Production Company in Portland, Oregon using Visual Studio 2019, MVC, and EF Frameworking. I contributed to the front and back end devolopment. Examples and code snippets can be seen [below](#c-sharp-live-project).
+As a part of the Software Developer Boot Camp at [The Tech Academy](http://learncodinganywhere.com), I was fortunate enough to work as an intern on two separate projects for Prosper IT Consulting. The C# project consisted of a 2-week Sprint which utilized Scrum/Agile methodologies and Azure DevOps for project management. The project consisted of developing a website for a Theater Production Company in Portland, Oregon using Visual Studio 2019, MVC, and EF Frameworking. I contributed to the front and back end devolopment. Examples and code snippets can be seen [below](#parsing-awards-table).
 
-The Python project involved creating a web-based app from scratch using PyCharm, MVT, and SQLAlchemy. The recent pandemic gave way to an unprecedented increase in sales of the Nintendo Switch and subsequently Nintendo Switch games and accessories. My simple app allows the user to enter his/her games manually, but it also allows them to view a list of Nintendo Switch games using the REST API RAWG Video Games Database. Future plans for the app involve branching out from simply video games and adding on Nintendo accessories and 3rd Party accessories. Examples and code snippets can be seen [below](#model).
+The Python project involved creating a web-based app from scratch using PyCharm, MVT, and SQLite. The recent pandemic gave way to an unprecedented increase in sales of the Nintendo Switch and subsequently Nintendo Switch games and accessories. My simple app allows the user to enter his/her games manually, but it also allows them to view a list of Nintendo Switch games using the REST API RAWG Video Games Database. Future plans for the app involve branching out from simply video games and adding on Nintendo accessories and 3rd Party accessories. Examples and code snippets can be seen [below](#template-inheritance).
 <br>
 <br>
 
@@ -161,5 +161,200 @@ In this case, not do anything. This was actually my first User Story and to be q
 ```
 
 ## Python Project
+### <a id="template_inheritance">Template Inheritance</a>
+Once you grasp and understand template inheritance, it is like manna from heaven. As part of a larger project with many other developers working on their respective apps, my Nintendo Switch App is part of another app that essentially displays my app and other apps. Extending from the base of the main app allowed me to change some content while leaving the rest as "default" from the base. This allowed me to keep the overall feel of the main app while still being able to customize my app.
+
+    {% extends "base.html" %}
+
+    {% load staticfiles %}
+
+    {% block title %}Nintendo Switch App{% endblock %}
+
+    {% block tab-icon %}<link rel="icon" href="{% static 'NSW_App/images/switch_icon.png' %}"{% endblock %}
+
+    {% block stylesheets %}
+        {{ block.super }}
+        <link rel="stylesheet" href="{% static 'NSW_App/css/NSW_App_layout.css' %}">
+    {% endblock %}
+
+    {% block pagetop-css %}bg_home{% endblock %}
+
+    {% block navbar %}
+        <header>
+            <nav class="nav-wrapper">
+                <div class="logo">
+                    <a href="{% url 'home' %}">
+                        {% block nav-icon %}<img src="{% static 'NSW_App/images/switch_icon.png' %}"{% endblock %}
+                    </a>
+                </div>
+                <ul class="menu">
+                    <li><a href="{% block home-button %}{% url 'NSWAppHome' %}{% endblock %}">Home</a></li>
+                    <li><a href="{% url 'NSWAppAbout' %}">About</a></li>
+                    <li><a href="{% url 'NSWNewsSearchAPI' %}">Search Switch News</a></li>
+                    <li><a href="{% url 'CurrentGamesIndex' %}">Current Games</a></li>
+                    <li><a href="{% url 'FutureGamesIndex' %}">Upcoming Releases</a></li>
+                    <li><a href="{% url 'UserLibrary' %}">User Library</a></li>
+                </ul>
+            </nav>
+        </header>
+    {% endblock %}
+
+    {% block page-title %}Nintendo Switch App{% endblock %}
+    {% block page-subtitle %}Your One Stop Switch Shop{% endblock %}
+
+    {% block button1 %}{% endblock %}
+    {% block button2 %}{% endblock %}
+    {% block button3 %}{% endblock %}
+    {% block button4 %}{% endblock %}
+    {% block button5 %}{% endblock %}
+
+    {% block appcontent %}{% endblock %}
+
+    {% block footer %}{% include 'NSW_App/NSW_App_footer.html' %}{% endblock %}
+
+    {%  block javascript %}{% endblock %}
+
+### Model
+In Django, Models utilize ORM and SQLite to create tables within the database. The following Model creates a table for Nintendo Switch games including Title, Genre, Release Date, User Rating, and more. Users can manually enter game information by using a form which is shown in the next [section](#form-template).
+
+    from django.db import models
+
+    USER_RATINGS = [
+        (0, 0),
+        (1, 1),
+        (2, 2),
+        (3, 3),
+        (4, 4),
+        (5, 5),
+    ]
+
+    ESRB_RATINGS = [
+        ('Everyone', 'Everyone'),
+        ('Everyone 10+', 'Everyone 10+'),
+        ('Teen', 'Teen'),
+        ('Mature 17+', 'Mature 17+'),
+        ('Adults Only 18+', 'Adults Only 18+'),
+        ('Rating Pending', 'Rating Pending'),
+    ]
+
+    GENRES = [
+        ('Action', 'Action'),
+        ('Adventure', 'Adventure'),
+        ('Arcade', 'Arcade'),
+        ('Board', 'Board'),
+        ('Card', 'Card'),
+        ('Casual', 'Casual'),
+        ('Educational', 'Educational'),
+        ('Fighting', 'Fighting'),
+        ('Indie', 'Indie'),
+        ('MMO', 'MMO'),
+        ('Open World', 'Open World'),
+        ('Platformer', 'Platformer'),
+        ('Racing', 'Racing'),
+        ('RPG', 'RPG'),
+        ('Shooter', 'Shooter'),
+        ('Sim', 'Sim'),
+        ('Sports', 'Sports'),
+        ('Strategy', 'Strategy'),
+    ]
+
+    class Game(models.Model):
+        title = models.CharField(max_length=100, verbose_name='Game Title', db_column='game_title', blank=False, null=False, unique=True)
+        publisher = models.CharField(max_length=50, verbose_name='Publisher', db_column='publisher', blank=True, null=True)
+        ESRB_rating = models.CharField(max_length=20, verbose_name='ESRB Rating', db_column='ESRB', blank=True, null=True, choices=ESRB_RATINGS)
+        genre = models.CharField(max_length=30, verbose_name='Genre', db_column='genre', blank=False, null=True, choices=GENRES)
+        release_date = models.DateField(verbose_name='Release Date', db_column='release_date', blank=True, null=True)
+        user_rating = models.IntegerField(verbose_name='User Rating', db_column='user_rating', choices=USER_RATINGS, blank=True, null=True)
+
+        class Meta:
+            db_table = 'games_tbl'
+            verbose_name = 'Game'
+
+### <a id="form_template">Form Template</a>
+This form template allows the user to visualize what information he/she will be adding to the games table. The behind-the-scenes code that actually adds the data to the table is shown below in the [views](#views) section.
+
+    {% extends 'NSW_App/NSW_App_base.html' %}
+
+    {% load staticfiles %}
+
+    {% block title %}Nintendo Switch App | Add Game{% endblock %}
+
+    {% block page-title %}Nintendo Switch App{% endblock %}
+    {% block page-subtitle %}Add Game to User Library{% endblock %}
+
+    {% block button1 %}{% endblock %}
+    {% block button2 %}{% endblock %}
+    {% block button3 %}{% endblock %}
+    {% block button4 %}{% endblock %}
+    {% block button5 %}{% endblock %}
+
+    {% block appcontent %}
+    <div>
+        <form class="text-center" method="POST">
+            {% csrf_token %}
+            {% for field in form.visible_fields %}
+            <div class="form-group">
+                {{ field.label_tag }}<br>
+                {% if field.help_text %}
+                <p>{{ field.help_text|safe }}</p>
+                {% endif %}
+                {{ field }}
+            </div>
+            {% endfor %}
+            <button type="button"><a class="cancel" href="{% url 'UserLibrary' %}">Cancel</a></button>
+            <button type="reset">Reset</button>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+    {% endblock %}
+
+### <a id="views">Views</a>
+The Views portion of the Django architecture essentially renders what you want the user to see when the user performs an action. For example, when a user clicks on the Save button when adding a game, the Add_Game function is called and executed. This function adds game information to the table using SQLite.
+
+    from django.shortcuts import render, redirect
+    from django.contrib import messages
+    from .model_form import AddGameForm
+    from .models import Game
+
+    def NSW_APP_Homepage(request):
+        return render(request, 'NSW_App/NSW_App_home.html')
+
+    def NSW_APP_About(request):
+        return render(request, 'NSW_App/NSW_App_about.html')
+
+    def NSW_News_API(request):
+        return render(request, 'NSW_App/NSW_App_API.html')
+
+    def Current_Games_Index(request):
+        return render(request, 'NSW_App/NSW_App_Current_Games.html')
+
+    def Future_Games_Index(request):
+        return render(request, 'NSW_App/NSW_App_Future_Games.html')
+
+    def Add_Game(request):
+        if request.method == 'POST':
+            form = AddGameForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Game Added to Library!')
+                return redirect("UserLibrary")
+        else:
+            form = AddGameForm()
+        return render(request, 'NSW_App/NSW_App_form.html', {'form': form})
+
+    def User_Library(request):
+        user_games = Game.objects.all()
+        content = {
+            'user_games': user_games,
+        }
+        return render(request, 'NSW_App/NSW_App_Library.html', content)
+
+    def Details(request, pk):
+        game = Game.objects.get(pk=pk)
+        context = {
+            'game': game
+        }
+        return render(request, 'NSW_App/NSW_App_details.html', context)
+
 ### API
 ![Under Construction](/img/images.jpg "Pardon My Dust! Still Open During Construction!")
