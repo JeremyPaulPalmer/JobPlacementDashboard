@@ -1,16 +1,16 @@
-# Live Projects
+# Prosper IT Consulting Internship
 
-* #### [C# Live Project](#c-sharp-live-project)
-* #### [Python Live Project](#model)
+* #### [C# Internship](#parsing-awards-table)
+* #### [Python Internship](#model)
 
 ### Introduction
-As a part of the Software Developer Boot Camp at [The Tech Academy](http://learncodinganywhere.com), I was fortunate enough to work on two separate Live Projects. The C# Live Project consisted of a 2-week Sprint which doubled as an internship for Prosper IT. This Sprint utilized the Agile/Scrum methodologies using Azure DevOps for management of the project. The project consisted of developing a website for a Theater Production Company in Portland, Oregon using Visual Studio 2019, MVC, and EF Frameworking. I contributed to the front and back end devolopment. Examples and code snippets can be seen [below](#c-sharp-live-project).
+As a part of the Software Developer Boot Camp at [The Tech Academy](http://learncodinganywhere.com), I was fortunate enough to work as an intern on two separate projects for Prosper IT Consulting. The C# project consisted of a 2-week Sprint which utilized Scrum/Agile methodologies and Azure DevOps for project management. The project consisted of developing a website for a Theater Production Company in Portland, Oregon using Visual Studio 2019, MVC, and EF Frameworking. I contributed to the front and back end devolopment. Examples and code snippets can be seen [below](#c-sharp-live-project).
 
-The Python Live Project involved creating a web-based app from scratch using PyCharm, MVT, and SQLAlchemy. The recent pandemic gave way to an unprecedented increase in sales of the Nintendo Switch and subsequently Nintendo Switch games and accessories. My simple app allows the user to enter his/her games manually, but it also allows them to view a list of Nintendo Switch games using the REST API RAWG Video Games Database. Future plans for the app involve branching out from simply video games and adding on Nintendo accessories and 3rd Party accessories. Examples and code snippets can be seen [below](#model).
+The Python project involved creating a web-based app from scratch using PyCharm, MVT, and SQLAlchemy. The recent pandemic gave way to an unprecedented increase in sales of the Nintendo Switch and subsequently Nintendo Switch games and accessories. My simple app allows the user to enter his/her games manually, but it also allows them to view a list of Nintendo Switch games using the REST API RAWG Video Games Database. Future plans for the app involve branching out from simply video games and adding on Nintendo accessories and 3rd Party accessories. Examples and code snippets can be seen [below](#model).
 <br>
 <br>
 
-## C Sharp Live Project
+## C Sharp Project
 ### <a id="parsing_awards_table">Parsing Awards Table</a>
 Out of all the User Stories, this one was by far the most challenging and most rewarding. This was a prime example of both a Front End and a Back End User Story.The original block of code simply contained the Awards data hardcoded which meant that any and every change needed to be performed manually. A previous User Story had been completed which seeded the Awards Table in the database. My task was to write the logic needed to display this information dynamically. As you can see below, I utilized a foreach loop with multiple nested if and else statements to achieve my goal of parsing the existing Awards information. The use of C#, html, CSS, and Bootstrap completed the Front End portion.
 ```
@@ -160,6 +160,6 @@ In this case, not do anything. This was actually my first User Story and to be q
 </p>
 ```
 
-## Python Live Project
+## Python Project
 ### API
 ![Under Construction](/img/images.jpg "Pardon My Dust! Still Open During Construction!")
